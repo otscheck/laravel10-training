@@ -1,1 +1,1 @@
-Tous mes projets Laravel vont commencer à partir d'ici
+Cours complet : Bitfumes. Il utilise aussi ChatGPT. On verra bien ce que ça donne
