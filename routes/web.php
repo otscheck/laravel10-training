@@ -4,6 +4,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Profile\AvatarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,39 +18,7 @@ use App\Http\Controllers\ProfileController;
 */
 
 Route::get('/', function () {
-
-    // $user = DB::insert('insert into users (name, email, password) values (?,?,?)', [
-    //     'julie',
-    //     'julie@email.com',
-    //     'password'
-    // ]);
-
-    // // $user = DB::update("update users set email='abc@email.com' where id=3");
-
-    // // $user = DB::delete("delete from users where id=2");
-
-    // // $users = DB::select("select * from users");
-
-    // DB::table('users')->insert([
-    //     'name'=>'roger',
-    //     'email'=>'roger@email.com',
-    //     'password'=>'password'
-    // ]);
-
-    // $user = User::create([
-    //     'name'=>'justin',
-    //     'email'=>'juste@email.com',
-    //     'password'=>'passwordjuste'
-    // ]);
-
-    $user = User::find(14);
-
-    // User::where('id',6)->update(['email'=>'hij@email.com']);
-
-    // User::find(6)->delete();
-    // $users = User::all();
-
-    dd($user->name);
+    return view('welcome');
 });
 
 Route::get('/dashboard', function () {
@@ -59,6 +28,7 @@ Route::get('/dashboard', function () {
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::patch('/profile/avatar', [AvatarController::class, 'update'])->name('profile.avatar');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
