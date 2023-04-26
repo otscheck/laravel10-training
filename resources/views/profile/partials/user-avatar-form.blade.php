@@ -4,11 +4,12 @@
             Avatar Utilisateur
         </h2>
 
-        <img class="w-16 h-16 rounded-full" src="{{ "/storage/$user->avatar" }}" alt="avatar" />
 
         <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
             ajouter ou mettre à jour l'avatar
         </p>
+
+        <img class="w-16 h-16 rounded-full" src="{{ "/storage/$user->avatar" }}" alt="avatar" />
     </header>
 
     @if (session('message'))
