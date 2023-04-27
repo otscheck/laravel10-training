@@ -3,14 +3,23 @@
         <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
             Avatar Utilisateur
         </h2>
+    </header>
 
+    <img class="w-16 h-16 rounded-full" src="{{ "/storage/$user->avatar" }}" alt="avatar" />
+
+    <form action="{{ route('profile.avatar.ai') }}" class="mt-4" method="POST">
+        @csrf
+        @method('post')
 
         <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-            ajouter ou mettre à jour l'avatar
+            mettre à jour l'avatar grâce à l'IA
         </p>
+        <x-primary-button>Générer un avatar</x-primary-button>
 
-        <img class="w-16 h-16 rounded-full" src="{{ "/storage/$user->avatar" }}" alt="avatar" />
-    </header>
+    </form>
+
+
+
 
     @if (session('message'))
         <div class="text-blue-500">
@@ -18,14 +27,17 @@
         </div>
     @endif
 
+
     <form method="post" action="{{ route('profile.avatar') }}" class="mt-6 space-y-6" enctype="multipart/form-data">
         @csrf
         @method('patch')
 
         <div>
-            <x-input-label for="avatar" :value="__('Avatar')" />
-            <x-text-input id="avatar" name="avatar" type="file" class="mt-1 block w-full" :value="old('avatar', $user->avatar)"
-                autofocus autocomplete="avatar" />
+            <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+                ou upload un avatar
+            </p>
+            <x-text-input id="avatar" name="avatar" type="file" class="mt-1 block w-full" autofocus
+                autocomplete="avatar" />
             <x-input-error class="mt-2" :messages="$errors->get('avatar')" />
         </div>
 
