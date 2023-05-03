@@ -1,0 +1,18 @@
+[
+    {
+        "titre":"Premier poste avec seeder",
+        "slug":"premier-poste-avec-seeder",
+        "description":"une petite description",
+        "excerpt":"juste un excerpt",
+        "est_publie":true,
+        "min_a_lire": 4
+    },
+    {
+        "titre":"Deuxième poste avec seeder",
+        "slug":"deuxieme-poste-avec-seeder",
+        "description":"une autre petite description",
+        "excerpt":"juste un excerpt",
+        "est_publie":false,
+        "min_a_lire": 14
+    }
+]
